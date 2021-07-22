@@ -5,11 +5,13 @@ export const Container = styled.View`
   margin-top: ${getStatusBarHeight()}px;
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
 `;
 
-export const Content = styled.View`
+export const Content = styled.ScrollView`
   display: flex;
   margin-top: 20px;
+  margin-bottom: 100px;
 `;
 
 export const Title = styled.Text`
@@ -38,4 +40,21 @@ export const Button = styled.TouchableOpacity`
   background-color: #cccc;
   height: 100%;
   width: 10%;
+`
+
+export const CategoryView = styled.ScrollView`
+  display: flex;
+  max-width:  300px;
+  flex-direction: row;
+`
+export const CategoryName = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+
+`;
+
+export const  ProductCategories = styled.View`
+  display: flex;
+  padding: 10px;
+  max-width:  300px;
 `

@@ -1,17 +1,27 @@
 import React from 'react'
+import {TouchableOpacityProps}  from  'react-native'
 
-import Alface  from '../../assets/alface.png'
-import { Container, ProductCategorie, Content, ImageContent, ProductText,  TextContent } from './styles'
 
-export function Product() {
+import { Container, Content, ImageContent, ProductText,  TextContent } from './styles'
+
+export type ProductProps ={
+  id?: string;
+  image: string;
+  name: string;
+  value: string;
+}
+
+
+
+export function Product({ image, name, value}: ProductProps) {
+  const uri = `${image}`
   return (
     <Container>
-      <ProductCategorie>Hortifrúti</ProductCategorie>
       <Content>
-        <ImageContent source={Alface} />
+        <ImageContent source={{uri}} />
         <TextContent>
-          <ProductText>Alface</ProductText>
-          <ProductText>R$ 3,00</ProductText>
+          <ProductText>{name}</ProductText>
+          <ProductText>{value}</ProductText>
         </TextContent>
       </Content>
     </Container>

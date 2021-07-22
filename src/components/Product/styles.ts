@@ -1,20 +1,21 @@
 import styled from 'styled-components/native';
 
+
+
 export const Container = styled.TouchableOpacity`
+  background-color: aqua;
   display: flex;
-  width: 130px;
+  width: 100%;
   height:100px;
+  margin-bottom:  20px;
+  border-radius: 4px;
 `
-export const ProductCategorie = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-`;
 
 export const Content = styled.View`
   display: flex;
   flex-direction: row;
   flex: 1;
+  margin: 5px;
 `;
 
 export const ImageContent = styled.Image`
@@ -23,12 +24,14 @@ export const ImageContent = styled.Image`
 `;
 export const TextContent = styled.View`
   display: flex;
-  justify-content: space-between;
-  margin: 10px;
+  justify-content: space-around;
+  margin-left: 10px;
+  
 `;
 
 export const ProductText = styled.Text`
   font-size: 14px;
+  font-weight: bold;
 
 `;
 
