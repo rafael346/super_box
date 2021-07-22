@@ -9,6 +9,7 @@ export const Container = styled.TouchableOpacity`
   height:100px;
   margin-bottom:  20px;
   border-radius: 4px;
+
 `
 
 export const Content = styled.View`
