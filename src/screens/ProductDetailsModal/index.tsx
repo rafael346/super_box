@@ -1,16 +1,15 @@
 import React, { useContext } from 'react'
-import { Modal, Button} from 'react-native'
-import { TouchableWithoutFeedback, ModalProps } from 'react-native'
+import { Modal} from 'react-native'
+import { TouchableWithoutFeedback, ModalProps,Text } from 'react-native'
 import { ProductContext } from '../../context/Context'
 
-import {ModalOverlay, ModalContainer, ProductName, ProductImage, ProductPrice, ProductDescription} from './styles'
+import {ModalOverlay, ModalContainer, ProductName,Button,ButtonText, ProductImage, ProductPrice, ProductDescription} from './styles'
 
 type Props = ModalProps &{
   name: string;
   image: string;
   value: string;
   description: string;
-
   closeModal: () =>void;
 }
 
@@ -32,14 +31,17 @@ export  function ProductDetailsModal({name, image,value,description,closeModal,.
       <TouchableWithoutFeedback onPress={closeModal}>
         <ModalOverlay>
           <ModalContainer>
-            <ProductName>{name}</ProductName>
             <ProductImage source={{uri}} />
+            <ProductName>{name}</ProductName>
+            <ProductDescription>{description}</ProductDescription> 
             <ProductPrice>{value}</ProductPrice>
-            <ProductDescription>{description}</ProductDescription>
-            <Button title='favoritar' onPress={()=>{
+            
+            <Button onPress={()=>{
               handleFavorite();
               closeModal();
-            }} />
+            }}>
+              <ButtonText>Favoritar</ButtonText>
+            </Button>
           </ModalContainer>
         </ModalOverlay>
 

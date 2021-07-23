@@ -16,7 +16,7 @@ export const Content = styled.View`
   display: flex;
   flex-direction: row;
   flex: 1;
-  margin: 5px;
+  margin-bottom: 15px;
 `;
 
 export const ImageContent = styled.Image`

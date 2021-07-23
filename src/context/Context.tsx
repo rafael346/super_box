@@ -1,6 +1,5 @@
 import React,{ useState, ReactNode, createContext } from "react";
 
-
 type Product = {
   id?: string;
   name: string;
@@ -13,6 +12,8 @@ type Product = {
 type ProductContextData = {
   handleCreateFavoriteProduct: (Product: Product) => void;
   handleRemoveFavoriteProduct: (id: string) => void;
+  setName: (name:string) => void;
+  name: string;
   favoriteList: Product[];
   dataProducts: DataProductsProps[];
 }
@@ -30,7 +31,8 @@ type DataProductsProps = {
 export const ProductContext = createContext<ProductContextData>({} as ProductContextData);
 
 export function ProductContextProvider({ children }: ProductContextProps) {
-  const [favoriteList, setFavoriteList] = useState<favoriteList[]>([]);
+  const [favoriteList, setFavoriteList] = useState<Product[]>([]);
+  const [name,setName] = useState('');
 
 
   const dataProducts = [
@@ -115,23 +117,25 @@ export function ProductContextProvider({ children }: ProductContextProps) {
   function handleCreateFavoriteProduct(Product: Product) {
     const newFavoriteList = {
       id: Math.random().toString(),
-      name: Product.image,
-      image: Product.name,
+      name: Product.name,
+      image: Product.image,
       value: Product.value,
       description: Product.description,
-    }
+      }
 
     setFavoriteList(existingList=> [...existingList, newFavoriteList]);
   }
 
   function handleRemoveFavoriteProduct(id: string ) {
-    const favoriteListRemover = favoriteList.filter(Product =>  Product.id != id);
+    const favoriteListRemover = favoriteList.filter(product =>  product.id != id);
     setFavoriteList(favoriteListRemover)
   }
 
 
   return (
     <ProductContext.Provider value={{
+      name,
+      setName,
       favoriteList,
       handleCreateFavoriteProduct,
       handleRemoveFavoriteProduct,
